@@ -1,0 +1,454 @@
+/* .generate-btn:disabled{
+
+    background:#94a3b8;
+
+    cursor:not-allowed;
+
+}
+
+.copy-btn{
+
+    display:block;
+
+    width:100%;
+
+    margin-top:15px;
+
+}
+
+.create-room{
+
+    min-height:100vh;
+
+    background:#0f172a;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+}
+
+.room-card{
+
+    background:white;
+
+    width:100%;
+
+    max-width:600px;
+
+    border-radius:15px;
+
+    padding:40px;
+
+    text-align:center;
+
+}
+
+.room-card h1{
+
+    color:#2563eb;
+
+}
+
+.room-card p{
+
+    margin-top:15px;
+
+    color:#555;
+
+}
+
+.generate-btn{
+
+    margin-top:30px;
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.generate-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.room-info{
+
+    margin-top:40px;
+
+}
+
+.room-code{
+
+    margin-top:15px;
+
+    font-size:35px;
+
+    letter-spacing:6px;
+
+    font-weight:bold;
+
+    color:#0f172a;
+
+    background:#f1f5f9;
+
+    padding:20px;
+
+    border-radius:10px;
+
+}
+
+.copy-btn{
+
+    margin-top:20px;
+
+    background:#10b981;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+.copy-btn:hover{
+
+    background:#059669;
+
+}
+
+@media(max-width:600px){
+
+    .room-card{
+
+        padding:25px;
+
+    }
+
+    .room-code{
+
+        font-size:25px;
+
+        letter-spacing:3px;
+
+    }
+
+}
+
+.range-container{
+    margin:20px 0;
+    text-align:left;
+}
+
+.range-container label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.range-value{
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.range-container input[type="range"]{
+    width:100%;
+    cursor:pointer;
+}
+
+.range-labels{
+    display:flex;
+    justify-content:space-between;
+    margin-top:6px;
+    color:#666;
+    font-size:14px;
+} */
+
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body,
+#root{
+    width:100%;
+    min-height:100%;
+    font-family:"Poppins",sans-serif;
+    overflow-y:auto;
+}
+
+/* ===========================
+   PAGE
+=========================== */
+
+.create-room{
+    width:100%;
+    min-height:100vh;
+    padding:40px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#5983df,#ed03f5,#dadde4);
+    overflow-y:auto;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.room-card{
+    width:100%;
+    max-width:550px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:22px;
+    padding:35px;
+    color:white;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    animation:fadeIn .4s ease;
+}
+
+/* ===========================
+   TITLE
+=========================== */
+
+.room-card h1{
+    font-size:34px;
+    text-align:center;
+    margin-bottom:12px;
+    font-weight:700;
+}
+
+.room-card p{
+    text-align:center;
+    color:#dbeafe;
+    margin-bottom:35px;
+}
+
+/* ===========================
+   LABEL
+=========================== */
+
+.room-card label{
+    display:block;
+    font-size:15px;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+/* ===========================
+   INPUT
+=========================== */
+
+.room-card input[type="text"]{
+    width:100%;
+    height:52px;
+    padding:0 18px;
+    border:none;
+    outline:none;
+    border-radius:12px;
+    background:rgba(255,255,255,.18);
+    color:white;
+    font-size:15px;
+    margin-bottom:25px;
+    transition:.3s;
+}
+
+.room-card input[type="text"]::placeholder{
+    color:#d1d5db;
+}
+
+.room-card input[type="text"]:focus{
+    background:rgba(255,255,255,.28);
+    box-shadow:0 0 0 3px rgba(255,255,255,.15);
+}
+
+/* ===========================
+   RANGE
+=========================== */
+
+.range-container{
+    margin-bottom:30px;
+}
+
+.range-value{
+    margin:12px 0;
+    text-align:center;
+    font-size:26px;
+    font-weight:bold;
+    color:#fff;
+}
+
+.range-container input[type="range"]{
+    width:100%;
+    cursor:pointer;
+    accent-color:#60a5fa;
+}
+
+.range-labels{
+    display:flex;
+    justify-content:space-between;
+    margin-top:10px;
+    color:#dbeafe;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.generate-btn,
+.copy-btn{
+    width:100%;
+    height:52px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+    margin-top:15px;
+}
+
+.generate-btn{
+    background:#ffffff;
+    color:#2563eb;
+}
+
+.generate-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 25px rgba(255,255,255,.3);
+}
+
+.generate-btn:disabled{
+    cursor:not-allowed;
+    opacity:.6;
+}
+
+.copy-btn{
+    background:#1d4ed8;
+    color:white;
+}
+
+.copy-btn:hover{
+    background:#2563eb;
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   ROOM CODE
+=========================== */
+
+.room-info{
+    margin-top:35px;
+    text-align:center;
+}
+
+.room-info h3{
+    margin-bottom:15px;
+}
+
+.room-code{
+    background:white;
+    color:#2563eb;
+    border-radius:14px;
+    padding:18px;
+    font-size:30px;
+    font-weight:700;
+    letter-spacing:6px;
+    margin-bottom:20px;
+    word-break:break-word;
+}
+
+/* ===========================
+   SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#60a5fa;
+    border-radius:10px;
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+    .create-room{
+        padding:20px 15px;
+        align-items:flex-start;
+    }
+
+    .room-card{
+        padding:25px;
+    }
+
+    .room-card h1{
+        font-size:28px;
+    }
+
+    .room-code{
+        font-size:22px;
+        letter-spacing:3px;
+    }
+
+    .generate-btn,
+    .copy-btn{
+        font-size:15px;
+    }
+
+}

@@ -1,0 +1,389 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body,
+#root{
+     width:100%;
+     height:100%;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f3f4f6;
+}
+
+.room-page{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+.room-header{
+    height:70px;
+    flex-shrink:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px;
+    background:white;
+    border-bottom:1px solid #ddd;
+}
+
+.chat-layout{
+    flex:1;
+    display:flex;
+    overflow:hidden;
+}
+
+/* Sidebar */
+
+.sidebar{
+    width:300px;
+    overflow-y:auto;
+    background:white;
+    border-right:1px solid #ddd;
+    padding:20px;
+}
+
+/* Chat */
+
+.chat-wrapper{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    background:#ece5dd;
+}
+
+/* Messages */
+
+.messages-wrapper{
+    flex:1;
+    overflow-y:auto;
+    padding:20px;
+}
+
+.empty-message{
+    text-align:center;
+    margin-top:30px;
+}
+
+.message{
+    background:white;
+    padding:12px 16px;
+    border-radius:12px;
+    margin-bottom:15px;
+    width:fit-content;
+    max-width:70%;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.message strong{
+    display:block;
+    color:#2563eb;
+    margin-bottom:6px;
+}
+
+/* Fixed Bottom Input */
+
+.message-box{
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    background:white;
+    border-top:1px solid #ddd;
+}
+
+.message-box input[type="text"]{
+    flex:1;
+    height:45px;
+    border:1px solid #ccc;
+    border-radius:30px;
+    padding:0 18px;
+    outline:none;
+}
+
+.message-box button{
+    height:45px;
+    padding:0 20px;
+    border:none;
+    border-radius:25px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+.message-box button:hover{
+    background:#1d4ed8;
+}
+
+/* Scrollbar */
+
+.messages-wrapper::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar{
+    width:8px;
+}
+
+.messages-wrapper::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb{
+    background:#bbb;
+    border-radius:20px;
+}
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body,
+#root{
+    width:100%;
+    height:100%;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f3f4f6;
+}
+
+.room-page{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.room-header{
+    height:70px;
+    background:#ffffff;
+    border-bottom:1px solid #e5e7eb;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 24px;
+    flex-shrink:0;
+    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    z-index:100;
+}
+
+.logo{
+    display:flex;
+    flex-direction:column;
+}
+
+.logo h2{
+    color:#2563eb;
+    font-size:24px;
+    font-weight:700;
+}
+
+.logo span{
+    font-size:13px;
+    color:#666;
+}
+
+.room-info{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    font-weight:600;
+    color:#444;
+}
+
+.connected{
+    color:#16a34a;
+}
+
+.reconnected{
+    color:#f59e0b;
+}
+
+.disconnected{
+    color:#dc2626;
+}
+
+.leave-btn{
+    background:#ef4444;
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.leave-btn:hover{
+    background:#dc2626;
+}
+
+/* ===========================
+   WAITING SCREEN
+=========================== */
+
+.waiting-container{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    text-align:center;
+    background:#f8fafc;
+}
+
+.waiting-container h1{
+    color:#2563eb;
+    margin-bottom:15px;
+    font-size:34px;
+}
+
+.waiting-container p{
+    color:#666;
+    font-size:16px;
+    margin-bottom:20px;
+}
+
+.room-code{
+    background:#2563eb;
+    color:white;
+    padding:15px 35px;
+    border-radius:10px;
+    font-size:34px;
+    font-weight:bold;
+    letter-spacing:6px;
+    margin:25px 0;
+}
+
+.waiting-buttons{
+    display:flex;
+    gap:15px;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+}
+
+.waiting-buttons button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:.3s;
+}
+
+.waiting-buttons button:hover{
+    background:#1d4ed8;
+}
+
+.status-box{
+    width:360px;
+    max-width:100%;
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.status-box p{
+    margin:12px 0;
+    color:#444;
+}
+
+.status-box strong{
+    color:#2563eb;
+}
+.chat-messages{
+    display:flex;
+    flex-direction:column;
+    overflow-y:auto;
+    flex:1;
+    padding:20px;
+}
+.message{
+    width: fit-content;
+    max-width: 70%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    word-break: break-word;
+}
+
+.my-message{
+    background:#2563eb;
+    color:white;
+    margin-left:auto;
+    margin-right:0;
+}
+
+.other-message{
+    background:white;
+    border:1px solid #ddd;
+    margin-right:auto;
+    margin-left:0;
+    color:#222;
+}
+
+.my-message strong{
+    color:white;
+}
+
+/* .other-message{
+    align-self:flex-start;
+    background:white;
+    border:1px solid #ddd;
+} */
+
+.other-message strong{
+    color:#2563eb;
+}
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:768px){
+
+    .room-header{
+        flex-direction:column;
+        gap:10px;
+        height:auto;
+        padding:15px;
+    }
+
+    .room-info{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .room-code{
+        font-size:26px;
+        letter-spacing:3px;
+        padding:12px 20px;
+    }
+
+    .waiting-buttons{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .waiting-buttons button{
+        width:100%;
+    }
+
+    .status-box{
+        width:100%;
+    }
+}
+

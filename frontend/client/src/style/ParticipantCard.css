@@ -1,0 +1,73 @@
+.participant-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px;
+
+    margin:10px 0;
+
+    border-radius:10px;
+
+    background:white;
+
+    border:1px solid #ddd;
+
+}
+
+.left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.left h4{
+
+    margin:0;
+
+    font-size:15px;
+
+}
+
+.left small{
+
+    color:#777;
+
+}
+
+.online-dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#22c55e;
+
+}
+
+.offline-dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#ef4444;
+
+}
+
+.owner{
+
+    font-size:20px;
+
+}
