@@ -42,32 +42,32 @@ function AdminDashboard() {
     return (
 
         <div className="admin-dashboard">
-<h1 className="admin-title">
+<h1 className="admin-title1">
     SecureShare Admin Dashboard
 </h1>
-<div className="stats-grid">
+<div className="stats-grid1">
 
-    <div className="stat-card">
+    <div className="stat-card1">
         <h3>Total Users</h3>
         <p>{dashboard.totalUsers}</p>
     </div>
 
-    <div className="stat-card">
+    <div className="stat-card1">
         <h3>Total Rooms</h3>
         <p>{dashboard.totalRooms}</p>
     </div>
 
-    <div className="stat-card">
+    <div className="stat-card1">
         <h3>Active Rooms</h3>
         <p>{dashboard.activeRooms}</p>
     </div>
 
-    <div className="stat-card">
+    <div className="stat-card1">
         <h3>Expired Rooms</h3>
         <p>{dashboard.expiredRooms}</p>
     </div>
 
-    <div className="stat-card">
+    <div className="stat-card1">
         <h3>Total Participants</h3>
         <p>{dashboard.totalParticipants}</p>
     </div>
@@ -75,18 +75,18 @@ function AdminDashboard() {
 </div>
             <hr />
             <hr />
-            <h2 className="room-heading">
+            <h2 className="room-heading1">
                 {dashboard.activeRooms>0 ?"Active Rooms":"No  Active Rooms"}
    
 </h2>
 
            
-<div className="room-grid">
+<div className="room-grid1">
 
     {dashboard.rooms.map(room => (
 
         <div
-            className="room-card"
+            className="room-card1"
             key={room._id}
         >
 
@@ -107,7 +107,7 @@ function AdminDashboard() {
 
             <p>
                 <strong>Status:</strong>{" "}
-                <span className={`status ${room.status}`}>
+                <span className={`status1 ${room.status}`}>
                     {room.status}
                 </span>
             </p>

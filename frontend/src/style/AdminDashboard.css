@@ -1,11 +1,11 @@
-.admin-dashboard {
+.admin-dashboard1 {
     min-height: 100vh;
     padding: 40px;
     background: linear-gradient(135deg, #eef2ff, #f8fafc);
     font-family: "Poppins", sans-serif;
 }
 
-.admin-title {
+.admin-title1 {
     text-align: center;
     color: #1e293b;
     font-size: 2.6rem;
@@ -13,14 +13,14 @@
     margin-bottom: 35px;
 }
 
-.stats-grid {
+.stats-grid1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
     margin-bottom: 45px;
 }
 
-.stat-card {
+.stat-card1 {
     background: #fff;
     border-radius: 18px;
     padding: 28px;
@@ -29,38 +29,38 @@
     border-left: 6px solid #4f46e5;
 }
 
-.stat-card:hover {
+.stat-card1:hover {
     transform: translateY(-8px);
     box-shadow: 0 18px 35px rgba(79,70,229,.18);
 }
 
-.stat-card h3 {
+.stat-card1 h3 {
     color: #64748b;
     font-size: 16px;
     margin-bottom: 12px;
     font-weight: 600;
 }
 
-.stat-card p {
+.stat-card1 p {
     font-size: 34px;
     font-weight: bold;
     color: #1e293b;
 }
 
-.room-heading {
+.room-heading1 {
     font-size: 2rem;
     color: #1e293b;
     margin-bottom: 20px;
     margin-top: 10px;
 }
 
-.room-grid {
+.room-grid1 {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(330px,1fr));
     gap: 25px;
 }
 
-.room-card {
+.room-card1 {
     background: #fff;
     border-radius: 18px;
     padding: 22px;
@@ -69,24 +69,24 @@
     border-top: 5px solid #4f46e5;
 }
 
-.room-card:hover {
+.room-card1:hover {
     transform: translateY(-6px);
     box-shadow: 0 18px 35px rgba(79,70,229,.18);
 }
 
-.room-card h3 {
+.room-card1 h3 {
     color: #4f46e5;
     margin-bottom: 15px;
     font-size: 22px;
 }
 
-.room-card p {
+.room-card1 p {
     margin: 10px 0;
     color: #475569;
     font-size: 15px;
 }
 
-.status {
+.status1 {
     display: inline-block;
     padding: 6px 14px;
     border-radius: 20px;
@@ -95,19 +95,19 @@
     color: white;
 }
 
-.status.active {
+.status1.active {
     background: #22c55e;
 }
 
-.status.waiting {
+.status1.waiting {
     background: #f59e0b;
 }
 
-.status.expired {
+.status1.expired {
     background: #ef4444;
 }
 
-.loading-admin {
+.loading-admin1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,19 +119,19 @@
 
 @media (max-width:768px){
 
-    .admin-dashboard{
+    .admin-dashboard1{
         padding:20px;
     }
 
-    .admin-title{
+    .admin-title1{
         font-size:2rem;
     }
 
-    .stat-card p{
+    .stat-card1 p{
         font-size:28px;
     }
 
-    .room-card{
+    .room-card1{
         padding:18px;
     }
 
