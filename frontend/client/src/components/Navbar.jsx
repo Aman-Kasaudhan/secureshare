@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import "../style/Navbar.css";
 import logo from "../../public/icon.png"
 function Navbar() {
+const isAdmin =
+        localStorage.getItem("admin") === "true";
 
     const navigate = useNavigate();
 
@@ -12,6 +14,7 @@ function Navbar() {
     function handleLogout() {
 toast.success("Logout successfully")
         logout();
+        localStorage.removeItem("admin");
 
         navigate("/login");
 
@@ -64,6 +67,21 @@ toast.success("Logout successfully")
                     Join Room
 
                 </Link>
+
+                
+                {
+
+                    isAdmin && (
+
+                        <Link to="/admin">
+
+                            Admin Dashboard
+
+                        </Link>
+
+                    )
+
+                }
 
             </div>
 

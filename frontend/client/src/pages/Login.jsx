@@ -45,13 +45,30 @@ function Login() {
 
         e.preventDefault();
 
+    //      if (
+    //     form.email === "admin@gmail.com" &&
+    //     form.password === "admin"
+    // ) {
+
+    //     localStorage.setItem(
+    //         "admin",
+    //         "true"
+    //     );
+
+    //     toast.success("Welcome Admin");
+
+    //     navigate("/admin");
+
+    //     return;
+    // }
+
         try {
 
             setLoading(true);
 
             const { data } = await api.post(
 
-                "api/auth/login",
+                "/api/auth/login",
 
                 form
 
@@ -64,6 +81,19 @@ function Login() {
                 data.user
 
             );
+            if(data.user.email=="admin@gmail.com"){
+        toast.success("Welcome Admin");
+        localStorage.setItem(
+            "admin",
+            "true"
+        );
+
+            setLoading(false);
+
+        navigate("/admin");
+
+        return;
+            }
             toast.success("Welcome back to SecureShare")
             setLoading(false);
 

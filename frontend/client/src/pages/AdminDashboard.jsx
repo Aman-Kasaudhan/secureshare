@@ -1,8 +1,8 @@
  import { useEffect, useState } from "react";
 import api from "../utils/axiosInstance";
-
+import "../style/AdminDashboard.css"
 function AdminDashboard() {
-
+// console.log("w")
     const [dashboard, setDashboard] = useState(null);
 
     useEffect(() => {
@@ -17,7 +17,7 @@ function AdminDashboard() {
 
             const { data } = await api.get(
 
-                "/admin/dashboard"
+                "/api/admin/dashboard"
 
             );
 
@@ -27,7 +27,7 @@ function AdminDashboard() {
 
         catch (error) {
 
-            // console.log(error);
+            console.log(error);
 
         }
 
@@ -41,89 +41,82 @@ function AdminDashboard() {
 
     return (
 
-        <div>
+        <div className="admin-dashboard">
+<h1 className="admin-title">
+    SecureShare Admin Dashboard
+</h1>
+<div className="stats-grid">
 
-            <h1>Admin Dashboard</h1>
+    <div className="stat-card">
+        <h3>Total Users</h3>
+        <p>{dashboard.totalUsers}</p>
+    </div>
 
-            <h2>Total Users : {dashboard.totalUsers}</h2>
+    <div className="stat-card">
+        <h3>Total Rooms</h3>
+        <p>{dashboard.totalRooms}</p>
+    </div>
 
-            <h2>Total Rooms : {dashboard.totalRooms}</h2>
+    <div className="stat-card">
+        <h3>Active Rooms</h3>
+        <p>{dashboard.activeRooms}</p>
+    </div>
 
-            <h2>Active Rooms : {dashboard.activeRooms}</h2>
+    <div className="stat-card">
+        <h3>Expired Rooms</h3>
+        <p>{dashboard.expiredRooms}</p>
+    </div>
 
-            <h2>Expired Rooms : {dashboard.expiredRooms}</h2>
+    <div className="stat-card">
+        <h3>Total Participants</h3>
+        <p>{dashboard.totalParticipants}</p>
+    </div>
 
-            <h2>Total Participants : {dashboard.totalParticipants}</h2>
-
+</div>
             <hr />
+            <hr />
+            <h2 className="room-heading">
+                {dashboard.activeRooms>0 ?"Active Rooms":"No  Active Rooms"}
+   
+</h2>
 
-            {
+           
+<div className="room-grid">
 
-                dashboard.rooms.map((room) => (
+    {dashboard.rooms.map(room => (
 
-                    <div
-                        key={room._id}
-                        style={{
-                            border: "1px solid #ccc",
-                            marginBottom: "15px",
-                            padding: "10px"
-                        }}
-                    >
+        <div
+            className="room-card"
+            key={room._id}
+        >
 
-                        <h3>
+            <h3>{room.roomCode}</h3>
 
-                            {room.roomCode}
+            <p>
+                <strong>Owner:</strong>{" "}
+                {room.owner?.firstName} {room.owner?.lastName}
+            </p>
 
-                        </h3>
+            <p>
+                <strong>Maximum Users:</strong> {room.maxUsers}
+            </p>
 
-                        <p>
+            <p>
+                <strong>Joined Users:</strong> {room.totalJoinedUsers}
+            </p>
 
-                            Owner :
+            <p>
+                <strong>Status:</strong>{" "}
+                <span className={`status ${room.status}`}>
+                    {room.status}
+                </span>
+            </p>
 
-                            {
+        </div>
 
-                                room.owner?.firstName
+    ))}
 
-                            }{" "}
-
-                            {
-
-                                room.owner?.lastName
-
-                            }
-
-                        </p>
-
-                        <p>
-
-                            Max Users :
-
-                            {room.maxUsers}
-
-                        </p>
-
-                        <p>
-
-                            Joined :
-
-                            {room.totalJoinedUsers}
-
-                        </p>
-
-                        <p>
-
-                            Status :
-
-                            {room.status}
-
-                        </p>
-
-                    </div>
-
-                ))
-
-            }
-
+</div>
         </div>
 
     );

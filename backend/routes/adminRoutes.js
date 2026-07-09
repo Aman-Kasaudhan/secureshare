@@ -7,13 +7,8 @@ const { auth } = require("../middleware/auth");
 const { getDashboard } = require("../controllers/adminController");
 
 router.get(
-
     "/dashboard",
-
-    auth,
-
-    getDashboard
-
-);
+    // auth,
+    getDashboard);
 
 module.exports = router;

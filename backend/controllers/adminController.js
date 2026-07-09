@@ -2,7 +2,7 @@ const User = require("../models/User");
 const Room = require("../models/Room");
 
 exports.getDashboard = async (req, res) => {
-
+// console.log("qwq")
     try {
 
         const totalUsers = await User.countDocuments();
@@ -60,7 +60,7 @@ exports.getDashboard = async (req, res) => {
     }
 
     catch (error) {
-
+// console.log(error.message)
         return res.status(500).json({
 
             success: false,

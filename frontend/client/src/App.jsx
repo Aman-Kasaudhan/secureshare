@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import Signup from "./pages/Signup";
 import { ToastContainer, toast } from "react-toastify";
+import AdminRoute from "./components/AdminRoute";
 import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
@@ -69,11 +70,12 @@ function App() {
     element={<Signup />}
 />
 <Route
-
-path="/admin"
-
-element={<AdminDashboard />}
-
+    path="/admin"
+    element={
+        <AdminRoute>
+            <AdminDashboard />
+        </AdminRoute>
+    }
 />
 <Route path="*" element={<ErrorPage />} />
 </Routes>

@@ -32,12 +32,12 @@ server.listen(PORT, () => {
     console.log(`🚀 Server Running On Port ${PORT}`);
 });
 
-// process.on("uncaughtException", (err) => {
-//     console.error("Uncaught Exception:");
-//     console.error(err);
-// });
+process.on("uncaughtException", (err) => {
+    console.error("Uncaught Exception:");
+    console.error(err);
+});
 
-// process.on("unhandledRejection", (err) => {
-//     console.error("Unhandled Rejection:");
-//     console.error(err);
-// });
+process.on("unhandledRejection", (err) => {
+    console.error("Unhandled Rejection:");
+    console.error(err);
+});
