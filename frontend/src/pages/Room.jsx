@@ -131,7 +131,8 @@ useEffect(() => {
 
     bottomRef.current?.scrollIntoView({
 
-        behavior: "smooth"
+        behavior: "smooth",
+        block: "end"
 
     });
 
@@ -140,22 +141,22 @@ useEffect(() => {
     
  
     useEffect(() => {
-// async function d(){
+async function d(){
  
-//     try {
-//    setLoading(true);
-//    await api.get(`/api/rooms/${roomCode}`);
+    try {
+   setLoading(true);
+   await api.get(`/api/rooms/${roomCode}`);
 
-// }
-// catch {
-// localStorage.removeItem(`displayName_${roomCode}`);
-// // navigate("/");
-// setLoading(false);
+}
+catch {
+localStorage.removeItem(`displayName_${roomCode}`);
+// navigate("/");
+setLoading(false);
 
 
-// }
-// } 
-// d()
+}
+} 
+d()
 
         // console.log(room) 
           socket.on("room-state", ({ room, systemMessage }) => {
@@ -368,6 +369,12 @@ socket.disconnect();
             {/* ================= Header ================= */}
 
             <header className="room-header">
+                <button
+        className="menu-btn"
+        onClick={() => setShowSidebar(true)}
+    >
+        ☰
+    </button>
                 <div className="logo">
                     <h2>SecureShare</h2>
                     <span>Room : {room.roomCode}</span>
@@ -447,12 +454,7 @@ socket.disconnect();
                 /* ================= Chat Layout ================= */
 <div className="chat-layout">
 
-    <button
-        className="menu-btn"
-        onClick={() => setShowSidebar(true)}
-    >
-        ☰
-    </button>
+    
 
     <aside className={`sidebar ${showSidebar ? "open" : ""}`}>
 
