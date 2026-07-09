@@ -14,8 +14,8 @@ const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
         origin: [
-            // process.env.CLIENT_URL,
-            "https://secureshare-alpha.vercel.app/"
+            process.env.CLIENT_URL,
+            // "https://secureshare-alpha.vercel.app"
             "http://localhost:5173"
         ],
         methods: ["GET", "POST"],
