@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import Loader from "../components/Loader";
 import FileCard from "../components/FileCard";
 import FileUpload from "../components/FileUpload";
+import ChatInput from "../components/ChatInput"
 import { getClientId } from "../utils/clientId";
 function Room() {
     const { roomCode } = useParams();
@@ -36,6 +37,9 @@ const [room, setRoom] = useState({
         messages: [],
         files: [],
     });
+    const messagesRef = useRef(null);
+
+ 
 useEffect(() => {
 
     const handleBeforeUnload = (e) => {
@@ -141,14 +145,16 @@ useEffect(() => {
     
  
     useEffect(() => {
-async function d(){
- 
-    try {
-   setLoading(true);
-   await api.get(`/api/rooms/${roomCode}`);
+        async function d(){
+            
+            try {
+                setLoading(true);
+                console.log(res)
+                const res=  await api.post(`/api/rooms/join-room/${roomCode}`);
+                setLoading(false);
 
 }
-catch {
+catch(error) {
 localStorage.removeItem(`displayName_${roomCode}`);
 // navigate("/");
 setLoading(false);
@@ -156,18 +162,18 @@ setLoading(false);
 
 }
 } 
-d()
+// d()
 
+// console.log(room)
         // console.log(room) 
           socket.on("room-state", ({ room, systemMessage }) => {
-            //  console.log("expiresAt:", room.expiresAt);  
+            //  console.log("expiresAt:", room);  
             setRoom(prev => ({
                   ...prev,
                   ...room,
                   participants: room.participants || [],
                   files: room.files || []
                 }));
-// console.log(room)
 
     if (systemMessage) {
 
@@ -182,6 +188,8 @@ d()
     }
 
 });
+// console.log(room)
+
         socket.on("receive-message", (chat) => {
 
             // console.log(chat)
@@ -209,53 +217,54 @@ socket.on("user-stop-typing", () => {
 
 });
 
-//     socket.connect();
+    socket.connect();
 
-// socket.once("connect", () => {
-
-//     setConnectionStatus("Connected");
-
-//     const displayName =
-//     localStorage.getItem(`displayName_${roomCode}`) ||
-//     "Anonymous";
-// socket.emit("join-room", {
-//     roomCode,
-//     clientId,
-//     displayName
-// });
-const joinSocketRoom = () => {
-
-    const displayName =
-        localStorage.getItem(`displayName_${roomCode}`) ||
-        "Anonymous";
-
-    socket.emit("join-room", {
-        roomCode,
-        clientId,
-        displayName
-    });
-
-};
-
-if (socket.connected) {
+socket.once("connect", () => {
 
     setConnectionStatus("Connected");
 
-    joinSocketRoom();
+    const displayName =
+    localStorage.getItem(`displayName_${roomCode}`) ||
+    "Anonymous";
+socket.emit("join-room", {
+    roomCode,
+    clientId,
+    displayName
+});
+})
+// const joinSocketRoom = () => {
 
-} else {
+//     const displayName =
+//         localStorage.getItem(`displayName_${roomCode}`) ||
+//         "Anonymous";
 
-    socket.connect();
+//     socket.emit("join-room", {
+//         roomCode,
+//         clientId,
+//         displayName
+//     });
 
-    socket.once("connect", () => {
+// };
 
-        setConnectionStatus("Connected");
+// if (socket.connected) {
 
-        joinSocketRoom();
+//     setConnectionStatus("Connected");
 
-    });
+//     joinSocketRoom();
 
-}
+// } else {
+
+//     socket.connect();
+
+//     socket.once("connect", () => {
+
+//         setConnectionStatus("Connected");
+
+//         joinSocketRoom();
+
+//     });
+
+// }
 
     // socket.emit("join-room", {
     
@@ -451,8 +460,11 @@ socket.disconnect();
                     </div>
                 </div>
             ) : (
+                  
+                    
+
                 /* ================= Chat Layout ================= */
-<div className="chat-layout">
+ <div className="chat-layout">
 
     
 
@@ -501,10 +513,10 @@ socket.disconnect();
     />
 )}
 
-    <section className="chat-wrapper">
+  <section className="chat-wrapper">
 
         <div className="messages-wrapper">
-
+ 
             {messages.length === 0 ? (
                 <p className="empty-message">
                     No Messages Yet
@@ -559,17 +571,23 @@ socket.disconnect();
                     }, 1000);
                 }}
                 onKeyDown={handleKeyDown}
+
+                
+
+                
             />
 
-            <button onClick={sendMessage}>
+            <button onClick={sendMessage} className="send-btn">
                 Send
             </button>
-
         </div>
+
 
     </section>
 
-</div>
+</div> 
+
+
             )}
         </div>
     );

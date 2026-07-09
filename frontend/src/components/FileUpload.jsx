@@ -3,7 +3,7 @@ import axios from "axios";
 import api from "../utils/axiosInstance";
 import { toast } from "react-toastify";
 import Loader from "./Loader";
-
+import "../style/FileUpload.css"
 // const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 function FileUpload({
@@ -103,17 +103,11 @@ function FileUpload({
 
             />
 
-            <button
-
-                onClick={openFilePicker}
-
-            >
-
-              📎
-
+            <button onClick={openFilePicker} className="attach-btn">
+                📎 
             </button>
 
-            <label>
+            <label className="download-checkbox">
 
                 <input
 

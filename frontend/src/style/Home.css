@@ -36,18 +36,24 @@ h1 {
   flex-wrap: wrap;
 }
 
-button {
+/* button {
   border: none;
   padding: 15px 30px;
   border-radius: 10px;
   cursor: pointer;
   font-size: 17px;
   transition: 0.3s;
-}
+} */
 
 .create-btn {
   background: #2563eb;
   color: white;
+   border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  transition: 0.3s;
 }
 
 .create-btn:hover {
@@ -57,6 +63,12 @@ button {
 .join-btn {
   background: #10b981;
   color: white;
+   border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 17px;
+  transition: 0.3s;
 }
 
 .join-btn:hover {
@@ -89,7 +101,8 @@ button {
     flex-direction: column;
   }
 
-  button {
+  .join-button ,.create-btn{
     width: 100%;
   }
+  
 }
