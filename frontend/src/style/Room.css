@@ -387,3 +387,105 @@ body,
     }
 }
 
+.menu-btn{
+    display:none;
+}
+
+.close-btn{
+    display:none;
+}
+
+.overlay{
+    display:none;
+}
+
+@media (max-width:768px){
+
+    .menu-btn{
+        display:flex !important;
+        justify-content:center;
+        align-items:center;
+
+        position:fixed;
+        top:80px;
+        left:15px;
+
+        width:45px;
+        height:45px;
+
+        border:none;
+        border-radius:8px;
+
+        background:#2563eb;
+        color:white;
+
+        font-size:24px;
+        z-index:99999;
+    }
+
+    .sidebar{
+        position:fixed;
+        top:0;
+        left:-300px;
+
+        width:280px;
+        height:100vh;
+
+        background:white;
+
+        transition:left .3s;
+
+        z-index:99998;
+    }
+
+    .sidebar.open{
+        left:0;
+    }
+
+    .close-btn{
+        display:block;
+        float:right;
+        border:none;
+        background:none;
+        font-size:30px;
+        cursor:pointer;
+        margin-bottom:20px;
+    }
+
+    .overlay{
+        display:block;
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.4);
+        z-index:99997;
+    }
+}
+
+@media (max-width:768px){
+
+    .room-header{
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
+        height:auto;
+        padding:10px;
+    }
+
+    .logo h2{
+        font-size:20px;
+    }
+
+    .logo span{
+        font-size:12px;
+    }
+
+    .room-info{
+        display:none;
+    }
+
+    .leave-btn{
+        padding:8px 12px;
+        font-size:13px;
+        white-space:nowrap;
+    }
+}

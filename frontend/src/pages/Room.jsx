@@ -16,6 +16,7 @@ function Room() {
 
 const clientId = getClientId();
     const [message, setMessage] = useState("");
+const [showSidebar, setShowSidebar] = useState(false);
 
 const [messages, setMessages] = useState([]);
 const [loading, setLoading]=useState(false)
@@ -357,7 +358,7 @@ socket.disconnect();
         }
 
 // console.log(room)
-
+// const [showSidebar, setShowSidebar] = useState(false);
         
     };
 // console.log("Frontend room:", room);
@@ -444,11 +445,24 @@ socket.disconnect();
                 </div>
             ) : (
                 /* ================= Chat Layout ================= */
+<div className="chat-layout">
 
-                <div className="chat-layout">
+    <button
+        className="menu-btn"
+        onClick={() => setShowSidebar(true)}
+    >
+        ☰
+    </button>
 
-    <aside className="sidebar">
-        {/* Participants */}
+    <aside className={`sidebar ${showSidebar ? "open" : ""}`}>
+
+        <button
+            className="close-btn"
+            onClick={() => setShowSidebar(false)}
+        >
+            ✕
+        </button>
+        
 
         <h3>Participants</h3>
 
@@ -478,6 +492,12 @@ socket.disconnect();
             ))
         )}
     </aside>
+    {showSidebar && (
+    <div
+        className="overlay"
+        onClick={() => setShowSidebar(false)}
+    />
+)}
 
     <section className="chat-wrapper">
 
